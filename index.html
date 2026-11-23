@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A&amp;P I Exam 3 Review</title>
+<meta name="description" content="Practice quiz for BIOL 2201 Exam 3: Chapters 9, 10 and 11.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+/* VOICE: calm, encouraging study tool; clear verdicts, no clutter.
+   IDEA: the Scantron bubble sheet the exam is graded on; every question is a bubble that fills green, yellow or red.
+   PICTURE: the working quiz card itself, with lettered answer bubbles; chapter cards carry a strip of status bubbles.
+   COLOUR and TYPE: deep teal field + white, status green/yellow/red; Archivo 800 titles, Atkinson Hyperlegible body.
+   LAYOUT: teal header band, chapter cards in a grid, quiz in one calm column up to 760px. */
+:root{color-scheme:light dark;
+--bg:light-dark(#f6f8f8,#0d1719);--card:light-dark(#ffffff,#152427);--ink:light-dark(#14211f,#e7f0ef);--mute:light-dark(#5a6b69,#9fb2b0);
+--line:light-dark(#d9e2e1,#26393c);--field:light-dark(#0f4c5c,#0b3a46);--fieldink:#ffffff;--soft:light-dark(#e6eff0,#1b3034);
+--g:#2e9e5b;--gs:light-dark(#e3f5ea,#163a26);--y:#e0a800;--ys:light-dark(#fff5d6,#3a3112);--r:#d64545;--rs:light-dark(#fde6e6,#3d1c1c);--n:light-dark(#c9d3d2,#3a4d50)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 "Atkinson Hyperlegible",system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Archivo,system-ui,sans-serif;font-weight:800;line-height:1.08;text-wrap:balance;margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid #4cc3d9;outline-offset:2px}
+.band{padding:clamp(24px,4vw,48px) max(5vw,16px)}
+.top{background:var(--field);color:var(--fieldink)}
+.top h1{font-size:clamp(32px,5vw,48px)}
+.top p{margin:.5em 0 0;max-width:62ch;opacity:.9}
+.wrap{max-width:1100px;margin:0 auto}
+.scope{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:10px;margin-top:20px}
+.scope div{background:rgba(255,255,255,.1);border-radius:12px;padding:12px 14px;font-size:15px}
+.scope b{display:block;font-size:16px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:18px;font-size:15px}
+.legend span{display:flex;align-items:center;gap:7px}
+.dot{width:14px;height:14px;border-radius:50%;flex:none;border:2px solid transparent}
+.dg{background:var(--g)}.dy{background:var(--y)}.dr{background:var(--r)}.dn{background:transparent;border-color:var(--n)}
+.top .dn{border-color:rgba(255,255,255,.6)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.card h2{font-size:24px}
+.card .sub{color:var(--mute);font-size:15px;margin-top:4px}
+.bar{display:flex;height:10px;border-radius:6px;overflow:hidden;background:var(--soft)}
+.bar i{display:block;height:100%}
+.counts{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:15px;color:var(--mute)}
+.counts b{color:var(--ink)}
+.bubbles{display:flex;flex-wrap:wrap;gap:5px}
+.bubbles .dot{width:13px;height:13px}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+.btn{min-height:44px;padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-weight:700}
+.btn.pri{background:var(--field);border-color:var(--field);color:#fff}
+.btn.warn{background:var(--rs);border-color:var(--r);color:var(--ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:16px}
+.row h2{font-size:28px}
+.quiz{max-width:760px;margin:0 auto}
+.qhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px;color:var(--mute);font-size:15px}
+.prog{height:8px;border-radius:5px;background:var(--soft);overflow:hidden;margin-bottom:18px}
+.prog i{display:block;height:100%;background:var(--field);transition:width .3s}
+.tries{display:flex;align-items:center;gap:6px}
+.tries .dot{width:12px;height:12px}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(18px,3vw,28px)}
+.tag{display:inline-block;font-size:14px;color:var(--mute);margin-bottom:8px}
+.qtext{font-size:clamp(20px,2.6vw,24px);font-weight:700;line-height:1.35;margin:0 0 18px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:14px;text-align:left;width:100%;min-height:52px;padding:12px 14px;border-radius:12px;border:2px solid var(--line);background:var(--card);transition:background .15s,border-color .15s}
+.opt:hover:not(:disabled){border-color:var(--field)}
+.opt .let{flex:none;width:34px;height:34px;border-radius:50%;border:2px solid var(--n);display:grid;place-items:center;font-weight:700;font-size:15px}
+.opt.wrong{border-color:var(--r);background:var(--rs)}
+.opt.wrong .let{background:var(--r);border-color:var(--r);color:#fff}
+.opt.right{border-color:var(--g);background:var(--gs)}
+.opt.right .let{background:var(--g);border-color:var(--g);color:#fff}
+.opt.reveal{border-color:var(--g);border-style:dashed}
+.opt:disabled{cursor:default}
+.msg{margin-top:16px;padding:14px 16px;border-radius:12px;display:none}
+.msg.show{display:block}
+.msg.m-g{background:var(--gs);border-left:5px solid var(--g)}
+.msg.m-y{background:var(--ys);border-left:5px solid var(--y)}
+.msg.m-r{background:var(--rs);border-left:5px solid var(--r)}
+.msg.m-t{background:var(--soft);border-left:5px solid var(--mute)}
+.msg b{display:block;margin-bottom:4px}
+.qfoot{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;margin-top:18px}
+.hint{color:var(--mute);font-size:14px}
+.sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:12px;margin:16px 0 24px}
+.sum div{border-radius:14px;padding:16px;font-size:15px}
+.sum b{display:block;font-family:Archivo,sans-serif;font-size:36px;line-height:1}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{min-height:44px;padding:8px 14px;border-radius:22px;border:1px solid var(--line);background:var(--card);display:flex;align-items:center;gap:8px}
+.chip[aria-pressed=true]{border-color:var(--field);box-shadow:inset 0 0 0 1px var(--field);font-weight:700}
+.list{display:grid;gap:8px}
+.li{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-left-width:6px;border-radius:12px;padding:12px 14px}
+.li.s-g{border-left-color:var(--g)}.li.s-y{border-left-color:var(--y)}.li.s-r{border-left-color:var(--r)}.li.s-n{border-left-color:var(--n)}
+.li p{margin:0}.li .a{color:var(--mute);font-size:15px;margin-top:4px}
+.empty{color:var(--mute);padding:20px;text-align:center;background:var(--card);border-radius:12px;border:1px dashed var(--line)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;place-items:center;padding:16px;z-index:5}
+.modal.show{display:grid}
+.modal div{background:var(--card);border-radius:16px;padding:22px;max-width:420px}
+.modal p{margin:0 0 16px}
+[hidden]{display:none!important}
+.resume{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;background:var(--card);border:2px solid var(--field);border-radius:16px;padding:16px 18px;margin-bottom:18px}
+.resume b{font-size:18px}
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.seg button{min-height:44px;padding:8px 14px;border:0;background:var(--card)}
+.seg button[aria-pressed=true]{background:var(--field);color:#fff;font-weight:700}
+.opts-row{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-bottom:18px;color:var(--mute);font-size:15px}
+.sumch{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px}
+.sumch h3{font-size:22px}
+.pct{font-family:Archivo,sans-serif;font-size:30px;font-weight:800}
+.topic{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.topic span{font-size:14px;padding:4px 10px;border-radius:14px;background:var(--soft)}
+.topic span.r{background:var(--rs)}.topic span.y{background:var(--ys)}
+details.li{display:block}details.li summary{cursor:pointer;list-style:none;display:flex;gap:12px;align-items:flex-start}
+details.li summary::-webkit-details-marker{display:none}
+details.li .ex{margin:8px 0 0 26px;font-size:15px;color:var(--mute)}
+textarea{width:100%;min-height:110px;font:15px/1.4 ui-monospace,monospace;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--bg);color:var(--ink)}
+.note{font-size:14px;color:var(--mute);margin-top:6px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media(max-width:600px){body{font-size:16px}.row h2{font-size:24px}}
+</style>
+</head>
+<body>
+<header class="top band">
+  <div class="wrap">
+    <h1>Exam 3 Review</h1>
+    <p>BIOL 2201 A&amp;P I, Professor Tyler. Built only from the lecture slides the exam covers, in the order they were taught. 50 questions on the real exam, all multiple choice and true/false.</p>
+    <div class="scope">
+      <div><b>Chapter 9</b>Slides 28 to 41 only (the rest was on Exam 2)</div>
+      <div><b>Chapter 10</b>Slides only, NOT names of specific muscles</div>
+      <div><b>Chapter 11</b>All of the slides</div>
+    </div>
+    <div class="legend">
+      <span><i class="dot dg"></i>Got it (right on 1st try)</span>
+      <span><i class="dot dy"></i>Should come back to (right on 2nd or 3rd try)</span>
+      <span><i class="dot dr"></i>Need to really study (missed all tries)</span>
+      <span><i class="dot dn"></i>Not seen yet</span>
+    </div>
+  </div>
+</header>
+
+<main class="band">
+  <div class="wrap">
+    <section id="home">
+      <div id="resume"></div>
+      <div class="row"><h2>Pick a chapter</h2>
+        <div class="btns"><button class="btn pri" id="goSum">My study summary</button><button class="btn" id="goList">Question list</button><button class="btn" id="goMove">Move progress</button><button class="btn" id="goReset">Reset</button></div></div>
+      <div class="opts-row"><span>Question order:</span><span class="seg" id="order"><button data-o="lecture">Lecture order (like the exam)</button><button data-o="shuffle">Shuffled</button></span>
+      <span>Your progress saves automatically in this browser.</span></div>
+      <div class="grid" id="cards"></div>
+    </section>
+
+    <section id="quiz" hidden>
+      <div class="quiz">
+        <div class="qhead"><span id="qTitle"></span><span class="tries" id="tries"></span><span id="qCount"></span></div>
+        <div class="prog"><i id="qProg"></i></div>
+        <div class="qcard">
+          <span class="tag" id="qTag"></span>
+          <p class="qtext" id="qText"></p>
+          <div class="opts" id="opts"></div>
+          <div class="msg" id="msg"></div>
+          <div class="qfoot">
+            <button class="btn" id="quit">Save and exit</button>
+            <span class="hint" id="kbd">Keys: A to D, Enter for next. Your spot is saved.</span>
+            <button class="btn pri" id="next" hidden>Next question</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="done" hidden>
+      <div class="quiz">
+        <h2 id="dTitle">Round complete</h2>
+        <div class="sum" id="dSum"></div>
+        <div class="btns" style="margin-bottom:20px"><button class="btn pri" id="dRetry">Redo my red and yellow</button><button class="btn" id="dHome">Back to chapters</button></div>
+        <div class="list" id="dList"></div>
+      </div>
+    </section>
+
+    <section id="summary" hidden>
+      <div class="quiz">
+        <div class="row"><h2>My study summary</h2><button class="btn" id="sHome">Back to chapters</button></div>
+        <div id="sBody"></div>
+      </div>
+    </section>
+
+    <section id="list" hidden>
+      <div class="row"><h2>My question list</h2><button class="btn" id="lHome">Back to chapters</button></div>
+      <div class="chips" id="chips"></div>
+      <div class="list" id="lList"></div>
+    </section>
+  </div>
+</main>
+
+<div class="modal" id="move"><div style="max-width:520px"><h3 style="font-size:22px;margin-bottom:8px">Move progress to another device</h3>
+<p style="margin:0 0 8px">Copy this code. On your other device, open this site, tap Move progress, paste the code here, and tap Load.</p>
+<textarea id="mvCode" aria-label="Progress code"></textarea><p class="note" id="mvNote"></p>
+<div class="btns" style="margin-top:10px"><button class="btn pri" id="mvCopy">Copy my code</button><button class="btn" id="mvLoad">Load pasted code</button><button class="btn" id="mvClose">Close</button></div></div></div>
+<div class="modal" id="modal"><div><p>Erase all your green, yellow and red marks and start fresh?</p><div class="btns"><button class="btn warn" id="mYes">Yes, reset</button><button class="btn" id="mNo">Cancel</button></div></div></div>
+
+<script>
+{
+const CH={9:"Ch 9: Muscles and Muscle Tissue",10:"Ch 10: The Muscular System",11:"Ch 11: The Nervous System"};
+const CHSUB={9:"Slides 28 to 41: contraction, twitch, tension, fiber types, exercise",10:"Muscle teamwork, fascicles, levers, naming, body movements",11:"Organization, glia, neurons, membrane and action potentials, synapses"};
+const Q=[];let n=0;
+const M=(c,s,q,o,e)=>Q.push({id:"q"+(++n),c,s,q,o,e,tf:false});
+const T=(c,s,q,a,e)=>Q.push({id:"q"+(++n),c,s,q,o:a?["True","False"]:["False","True"],e,tf:true});
+
+/* ---------- Chapter 9, slides 28 to 41 ---------- */
+M(9,29,"How do the slides define a muscle 'contraction'?",["The force (tension) generating action of myofibers","Any shortening of a muscle","The relaxation phase after a twitch","The release of calcium from the muscle fiber"],"Contraction = force (tension) generating action of myofibers. The fiber may shorten, stay the same length, or lengthen.");
+M(9,29,"You hold a heavy dumbbell perfectly still with your elbow bent. What type of contraction is this?",["Isometric","Concentric","Eccentric","Tetanic"],"Isometric: force is generated but fiber length is unchanged (no movement).");
+M(9,29,"Curling a dumbbell up toward your shoulder is which type of contraction?",["Concentric","Isometric","Eccentric","Antagonistic"],"Concentric: force generated, fibers shorten.");
+M(9,29,"Slowly lowering a dumbbell back down is which type of contraction?",["Eccentric","Concentric","Isometric","Fused tetanus"],"Eccentric: force generated while the fibers lengthen.");
+T(9,29,"In an isometric contraction, the muscle generates force but the fiber length does not change.",true,"Isometric = force generated, fiber length unchanged.");
+M(9,30,"What are the 3 phases of a single muscle twitch, in order?",["Latent period, period of contraction, period of relaxation","Depolarization, repolarization, hyperpolarization","Contraction, latent period, relaxation","Recruitment, summation, tetanus"],"A single twitch has 3 phases: latent period, period of contraction, period of relaxation.");
+M(9,30,"What is happening during the LATENT period of a twitch?",["E-C (excitation-contraction) coupling actions are occurring","Cross bridges are cycling","Ca2+ is being pumped back into the sarcoplasmic reticulum","The muscle is at maximum tension"],"Latent period = E-C coupling actions occurring. Nothing visible is happening yet.");
+M(9,30,"Cross bridge cycling happens during which phase of a twitch?",["Period of contraction","Latent period","Period of relaxation","Refractory period"],"Period of contraction = cross bridge cycling.");
+M(9,30,"During the period of relaxation:",["Ca2+ is pumped back into the sarcoplasmic reticulum and cross bridges break","Ca2+ floods out of the sarcoplasmic reticulum","E-C coupling is starting","Cross bridges are forming faster"],"Relaxation = Ca2+ being pumped back into the SR, cross bridges breaking.");
+T(9,31,"A single stimulus achieves maximum muscle tension.",false,"A single stimulus does NOT achieve maximum tension.");
+M(9,31,"What happens when repeated stimuli arrive BEFORE the muscle fully relaxes?",["Tension increases","Tension decreases","The muscle cannot respond","The muscle switches to aerobic ATP production"],"Repeated stimuli occurring before full relaxation increase tension.");
+M(9,31,"Very frequent stimuli that produce maximum tension cause a state called:",["Tetanus","Muscle tone","Hypertrophy","The latent period"],"More frequent stimuli achieve maximum tension = tetanus.");
+M(9,31,"Tetanus can be described as:",["Unfused or fused","Concentric or eccentric","Aerobic or anaerobic","Unipennate or bipennate"],"Tetanus may be unfused or fused.");
+T(9,31,"The tension graphs for AP frequency on the slides are for single motor units.",true,"The slide notes these graphs are for single motor units.");
+M(9,32,"Motor unit recruitment results from:",["Increasing the strength of the signal coming from the brain","Increasing the length of the muscle fibers","Decreasing calcium in the sarcoplasmic reticulum","Muscle fibers dividing"],"Recruitment results from increasing the strength of the signal from the brain.");
+M(9,32,"The WEAKEST signals from the brain activate:",["Motor units with the fewest fibers","Motor units with the most fibers","All motor units at once","Only Type IIb fibers"],"The weakest signals activate the motor units with the fewest fibers.");
+M(9,33,"Henneman's size principle states that:",["Small motor units are recruited first, followed by increasingly larger ones","Large motor units are recruited first","All motor units are recruited at the same time","Motor unit size never affects recruitment"],"Small (few fibers) motor units first, then increasingly larger units.");
+M(9,33,"Why is Henneman's size principle useful?",["It allows very fine gradations of tension at low levels and larger jumps at greater signal strengths","It prevents muscles from ever reaching tetanus","It makes every contraction maximal","It lets muscles push as well as pull"],"Fine control at low levels (gently holding a baby's hand) and large jumps at high levels (holding on for dear life).");
+M(9,34,"Muscle tone is best defined as:",["Residual tension from a slight level of stimulus even in resting muscle","How defined or visible the muscles look","The maximum tension a muscle can make","The number of fibers in a muscle"],"Tone = residual tension due to a slight level of stimulus occurring even in resting muscles. Tone is not definition.");
+T(9,34,"Good muscle tone is always accompanied by good muscle definition.",false,"Good tone is NOT always accompanied by good definition.");
+T(9,34,"Muscles that are used regularly develop more tone.",true,"Regularly used muscles develop more tone.");
+M(9,36,"A muscle's response to exercise depends on which two factors?",["Muscle fiber type (means of ATP production) and type of exercise","Age and sex","Origin and insertion","Muscle name and shape"],"Responses depend on 1) fiber type / means of ATP production and 2) type of exercise.");
+M(9,37,"ATP is produced by phosphorylation of:",["ADP","Creatine","Glucose","Myoglobin"],"ATP is produced by adding a phosphate to ADP (phosphorylation of ADP).");
+M(9,38,"Which method of making ATP is used by ALL muscle fiber types for IMMEDIATE ATP?",["Direct phosphorylation by creatine phosphate","Anaerobic glycolysis","Aerobic phosphorylation","Beta oxidation"],"Creatine phosphate: immediate product, no fuel or oxygen needed. ALL fiber types use it.");
+M(9,38,"Anaerobic phosphorylation by glycolysis is:",["Very rapid, needs no oxygen, used by all fast twitch fibers (IIa, IIb)","Slow, needs oxygen, used by Type I only","Immediate, uses creatine phosphate","Only used during sleep"],"Glycolysis: very rapid, no oxygen needed, used by all fast twitch fibers (Types IIa, IIb).");
+M(9,38,"Aerobic phosphorylation is:",["Relatively slow, requires oxygen, used by oxidative fibers (Type I and IIa)","Very rapid, needs no oxygen","Used only by Type IIb fibers","The same as direct phosphorylation"],"Aerobic: relatively slow, requires oxygen, all oxidative fibers (Types I, IIa).");
+T(9,38,"Fiber type is determined by how the fiber produces ATP.",true,"Slide 38 title: fiber type is determined by how ATP is produced.");
+M(9,39,"Type I fibers are:",["Slow oxidative: slow contractions, thinnest (weakest) fibers, high endurance","Fast glycolytic: fastest, thickest, low endurance","Fast oxidative: medium speed, pink","White fibers"],"Type I = slow oxidative, slow, thinnest, high endurance.");
+M(9,39,"Type IIa fibers are:",["Fast oxidative: medium/fast contractions, medium thickness, medium endurance, pink","Slow oxidative: high endurance, thinnest","Fast glycolytic: very pale white fibers","Fibers that never use oxygen"],"IIa = fast oxidative, medium everything, pink in color.");
+M(9,39,"Which fiber type has the FASTEST contractions, the THICKEST fibers, and LOW endurance?",["Type IIb (IIx), fast glycolytic","Type I, slow oxidative","Type IIa, fast oxidative","All types are equal"],"IIb (IIx) = fast glycolytic: fastest, thickest, low endurance.");
+M(9,39,"Which fiber type is very pale and often called 'white fibers'?",["Type IIb (IIx)","Type I","Type IIa","Cardiac fibers"],"IIb fibers are very pale, often called white fibers. IIa are pink.");
+T(9,39,"Type I (slow oxidative) fibers are the thickest and strongest fibers.",false,"Type I are the THINNEST (weakest) fibers. IIb are the thickest.");
+M(9,40,"Which is an effect of aerobic/endurance training (cardio)?",["Increased capillary density, more mitochondria, more myoglobin","Fibers splitting into many new fibers","Fewer mitochondria","Lower myoglobin"],"Cardio increases capillary density, number of mitochondria, and myoglobin production.");
+M(9,40,"Why does increased myoglobin help an endurance athlete?",["It improves the muscle's ability to store O2","It breaks down lactic acid","It adds more myofibrils","It speeds up nerve impulses"],"Higher myoglobin production improves the ability to store O2.");
+M(9,40,"Increased capillary density from cardio results in:",["Improved O2 and fuel delivery","Thicker fibers","More muscle definition","Faster twitch speed"],"More capillaries = improved O2/fuel delivery.");
+M(9,41,"Resistance exercise mainly causes:",["Muscle hypertrophy (increased muscle mass)","Increased capillary density only","Muscle atrophy","More motor neurons"],"Resistance exercise causes muscle hypertrophy.");
+M(9,41,"Most muscle hypertrophy results from:",["Individual fibers growing as more fibrils are added, increasing fiber diameter","Muscle fibers dividing to make more fibers","More fat stored in the muscle","Tendons getting longer"],"Most hypertrophy = individual fibers growing; more fibrils are added, increasing diameter.");
+T(9,41,"Muscle fibers commonly divide to create new muscle fibers after resistance training.",false,"Muscle fibers only RARELY divide. Growth comes from fibers getting bigger.");
+
+/* ---------- Chapter 10 (concepts only, not specific muscle names) ---------- */
+T(10,4,"Muscles can both pull and push on bones.",false,"Muscles can only pull; they cannot push.");
+M(10,4,"Bidirectional movement (like elbow flexion and extension) requires:",["Two muscles acting against one another","One muscle that pushes and pulls","A circular muscle","Three synergists"],"Because muscles can only pull, two muscles must act against each other.");
+M(10,4,"In a pair of opposing muscles, the prime mover is also called the:",["Agonist","Antagonist","Synergist","Fixator"],"The prime mover is the agonist; the opposing muscle is the antagonist.");
+M(10,4,"The muscle that opposes the prime mover is the:",["Antagonist","Agonist","Synergist","Insertion"],"The antagonist acts against the agonist (prime mover).");
+M(10,5,"The muscle providing MOST of the force for a movement is the:",["Prime mover","Synergist","Antagonist","Origin"],"The prime mover provides most of the force.");
+M(10,5,"Synergists:",["Play more of a supporting role","Provide most of the force","Always oppose the prime mover","Do not attach to bones"],"Synergists play a supporting role.");
+T(10,5,"Most motions require more than one muscle.",true,"Muscles rarely work alone.");
+M(10,6,"For a muscle to cause movement, it must:",["Span at least one joint","Be circular","Have two origins","Be pennate"],"A muscle must span at least one joint to cause movement.");
+M(10,6,"The origin of a muscle is:",["The fixed point of attachment","The attachment on the part being moved","The middle of the muscle","Always the insertion"],"Origin = fixed point. Insertion = on the part being moved.");
+M(10,6,"The insertion of a muscle is:",["On the part being moved","The fixed, non-moving attachment","The tendon in the center of a pennate muscle","The joint"],"Insertion = point on the part being moved.");
+M(10,7,"Muscle tension is determined by the number of fibers, which depends on:",["The size of the muscle and the arrangement of fascicles","The muscle's name","Origin only","The number of joints in the body"],"Number of fibers depends on a) muscle size and b) fascicle arrangement.");
+M(10,7,"Parallel fascicle arrangements provide:",["The least tension but the greatest movement","The most tension but the least movement","No movement at all","Only sphincter function"],"Parallel = least tension, greatest movement.");
+M(10,7,"Pennate muscles:",["Have short fascicles attached to a central tendon; move shorter distances but give greater tension","Have long parallel fascicles giving the greatest movement","Do not attach to bones","Close off body openings"],"Pennate: shorter fascicles on a central tendon, shorter movement, greater tension.");
+M(10,8,"Muscles with parallel fascicles are called:",["Fusiform","Pennate","Circular","Convergent"],"Parallel fascicle muscles are called fusiform.");
+M(10,8,"Fusiform (parallel) muscles can be shaped like:",["A spindle or a strap","A feather with one side","A ring","A fan"],"Fusiform muscles may be spindle shaped or strap-like.");
+M(10,9,"A pennate muscle with fascicles on ONE side of the tendon is:",["Unipennate","Bipennate","Multipennate","Fusiform"],"Unipennate = unilateral.");
+M(10,9,"A pennate muscle with fascicles on BOTH sides of the central tendon is:",["Bipennate","Unipennate","Multipennate","Circular"],"Bipennate = bilateral.");
+M(10,9,"A pennate muscle with fascicles approaching the tendon from MANY directions (the slides use the deltoid as the example) is:",["Multipennate","Unipennate","Bipennate","Fusiform"],"Multipennate = multilateral, e.g., deltoid.");
+M(10,10,"Circular muscles:",["Do not attach to bones and close off body openings like sphincters","Attach to two bones across a joint","Have a central tendon","Give the greatest range of movement"],"Circular muscles don't attach to bones; they act as sphincters (mouth, anus).");
+M(10,11,"In the body's lever systems, the FULCRUM is the:",["Joint","Bone","Muscle","Tendon"],"The joint is the fulcrum, the bones are the levers, and the muscle provides the force.");
+M(10,11,"In the body's lever systems, the LEVERS are the:",["Bones","Joints","Muscles","Nerves"],"Bones are the levers.");
+M(10,11,"What determines mechanical advantage (MA) in a lever?",["The relative length of the two lever arms","The color of the muscle","The number of nerves","The muscle's name"],"Relative length of the two arms determines MA.");
+M(10,11,"The tradeoff in a lever system is between:",["Mechanical advantage (power) and speed","Origin and insertion","Endurance and color","Flexion and extension"],"There is a tradeoff between MA and speed.");
+M(10,12,"A muscle that attaches CLOSE to the fulcrum (joint) will have:",["Low power but high speed","High power but low speed","High power and high speed","No movement"],"Close to the fulcrum = low power, high speed. Far from fulcrum = low speed, great power.");
+M(10,12,"A muscle that attaches FAR from the fulcrum (joint) will have:",["Great power but low speed","High speed but low power","No mechanical advantage","Only isometric contractions"],"Far from fulcrum = low speed, great power (the slide uses the hip adductor group as the example).");
+M(10,13,"A muscle's action happens when:",["The insertion point is brought closer to the origin","The origin moves toward the insertion","The muscle pushes the bone away","The muscle lengthens on its own"],"Muscles pull in a straight line; the action is the insertion being pulled toward the origin.");
+M(10,13,"The specific action of a muscle is determined by:",["Its origin and insertion points","Its color","Its fiber type","How many nerves it has"],"Action is determined by origin and insertion (and positioning).");
+T(10,17,"There is a single convention for naming muscles.",false,"There is NO single convention for naming muscles.");
+M(10,17,"The word 'rectus' in a muscle name refers to:",["Fiber orientation (straight)","Size","Number of origins","Shape (triangular)"],"Rectus = straight, a fiber orientation term (others: transversus, oblique).");
+M(10,17,"Names like 'longus', 'brevis' and 'maximus' describe a muscle's:",["Size","Location","Action","Number of origins"],"Longus, brevis, maximus = size.");
+M(10,17,"'Deltoid' (triangular) and 'rhomboid' are names based on:",["Shape","Location","Action","Attachment points"],"Deltoid (triangular) and rhomboid are shape names.");
+M(10,17,"The 'bi' in 'biceps' tells you about the muscle's:",["Number of origins (2 heads)","Size","Fiber direction","Action"],"Biceps = 2-headed, named for number of origins.");
+M(10,17,"Names like 'flexor', 'extensor' and 'adductor' are based on the muscle's:",["Action","Shape","Location","Size"],"These describe muscle action.");
+M(10,17,"A name like 'sternocleidomastoid' is based on the muscle's:",["Attachment points","Shape","Size","Fiber orientation"],"Named for its attachments (sternum, clavicle, mastoid process).");
+M(10,17,"According to the slides, when 'minor' and 'major' are used for position:",["Minor is superior, major is inferior","Minor is inferior, major is superior","Minor is lateral, major is medial","They describe size only"],"Position: minor is superior, major is inferior.");
+M(10,17,"Names like 'brachialis', 'temporalis' and 'tibialis anterior' are based on:",["Location","Action","Shape","Number of origins"],"These are location names.");
+M(10,14,"Bending the head backward past anatomical position is:",["Hyperextension","Flexion","Rotation","Depression"],"Flexion bends forward, extension returns upright, hyperextension goes past that.");
+M(10,14,"Jutting the jaw (mandible) forward is:",["Protraction","Retraction","Elevation","Opposition"],"Protraction = forward; retraction = backward.");
+M(10,14,"Closing your mouth by raising the mandible is:",["Elevation","Depression","Protraction","Supination"],"Elevation raises the mandible; depression lowers it (opens the mouth).");
+M(10,15,"Moving the arm out to the side, away from the body's midline, is:",["Abduction","Adduction","Circumduction","Rotation"],"Abduction = away from midline; adduction = toward midline.");
+M(10,15,"Moving the arm in a cone-shaped circle at the shoulder is:",["Circumduction","Rotation","Abduction","Protraction"],"Circumduction traces a circle/cone.");
+M(10,16,"In pronation of the forearm:",["The radius rotates over the ulna (palm faces back/down)","The radius and ulna are parallel","The foot points down","The thumb touches the fingers"],"Pronation: radius rotates over ulna. Supination: radius and ulna are parallel.");
+M(10,16,"In supination of the forearm:",["The radius and ulna are parallel (palm faces forward/up)","The radius crosses over the ulna","The ankle points the toes up","The jaw moves back"],"Supination = radius and ulna parallel.");
+M(10,16,"Pointing your toes downward (like pressing a gas pedal) is:",["Plantar flexion","Dorsiflexion","Inversion","Eversion"],"Plantar flexion = toes down; dorsiflexion = toes up toward shin.");
+M(10,16,"Turning the sole of the foot inward (toward the midline) is:",["Inversion","Eversion","Dorsiflexion","Pronation"],"Inversion = sole turns in; eversion = sole turns out.");
+M(10,16,"Touching your thumb to the tips of your other fingers is:",["Opposition","Adduction","Circumduction","Supination"],"Opposition: thumb to fingertips.");
+
+/* ---------- Chapter 11 ---------- */
+M(11,3,"What are the three basic functions of the nervous system, in order?",["Sensory input, integration, motor output","Motor output, integration, sensory input","Integration, sensory input, motor output","Depolarization, repolarization, hyperpolarization"],"Sensation, then integration, then response.");
+M(11,3,"Processing sensory input and formulating a response is called:",["Integration","Sensory input","Motor output","Conduction"],"Integration = processing input and forming a response.");
+M(11,3,"The response sent to an effector (muscle or gland) is the:",["Motor output","Sensory input","Integration","Graded potential"],"The response goes to the effector through motor output.");
+M(11,5,"The reflex arc is an example of:",["Sensation, integration, response","Only motor output","Only sensory input","Synaptic integration in glia"],"The reflex arc shows sensation, integration, response.");
+M(11,6,"The central nervous system (CNS) consists of:",["The brain and spinal cord","Cranial and spinal nerves","Ganglia only","The brain only"],"CNS = brain and spinal cord; it occupies the dorsal cavity and does integration.");
+M(11,6,"The CNS occupies which body cavity?",["Dorsal cavity","Ventral cavity","Thoracic cavity","Abdominal cavity"],"The CNS occupies the dorsal cavity.");
+M(11,6,"Afferent pathways carry signals:",["Toward the CNS (sensory)","Away from the CNS (motor)","Only within the brain","Only to glands"],"Afferent = toward CNS (sensory). Tip: Afferent Arrives.");
+M(11,6,"Efferent pathways carry signals:",["Away from the CNS to effectors (motor)","Toward the CNS (sensory)","Between glial cells","Only within the spinal cord"],"Efferent = away from CNS (motor). Tip: Efferent Exits.");
+M(11,7,"The peripheral nervous system (PNS) is made of:",["Cranial nerves and spinal nerves","The brain and spinal cord","Only the autonomic system","Only sensory receptors"],"PNS = cranial and spinal nerves, the communication lines between CNS and body.");
+M(11,7,"The somatic nervous system controls:",["Skeletal muscle (voluntary)","Cardiac muscle, smooth muscle and glands","Only sensory input","Only the digestive tract"],"Somatic = voluntary motor fibers to skeletal muscle.");
+M(11,7,"The autonomic nervous system (ANS) conducts impulses to:",["Cardiac muscle, smooth muscle, and glands (involuntary)","Skeletal muscle only","The brain only","Sensory receptors"],"ANS = visceral (involuntary) motor, to cardiac muscle, smooth muscle and glands.");
+M(11,7,"Which division mobilizes body systems during activity?",["Sympathetic","Parasympathetic","Somatic","Sensory"],"Sympathetic mobilizes during activity; parasympathetic conserves energy at rest.");
+M(11,7,"Which division conserves energy and promotes housekeeping functions during rest?",["Parasympathetic","Sympathetic","Somatic","Afferent"],"Parasympathetic = rest and digest, housekeeping.");
+M(11,8,"Which cells are excitable and do the 'work' of the nervous system?",["Neurons","Neuroglia","Astrocytes","Schwann cells"],"Neurons are excitable and send electrical signals; glia support them.");
+M(11,9,"Which of these is a neuroglial cell of the PNS?",["Schwann cell","Astrocyte","Microglia","Oligodendrocyte"],"PNS glia: Schwann cells and satellite cells. The rest are CNS.");
+M(11,9,"Which is NOT a CNS neuroglial cell?",["Satellite cell","Astrocyte","Ependymal cell","Microglia"],"Satellite cells are in the PNS.");
+M(11,10,"The MOST numerous glial cell in the CNS is the:",["Astrocyte","Microglia","Ependymal cell","Schwann cell"],"Astrocytes: most numerous, physical and chemical support, link neurons and blood vessels.");
+M(11,10,"Which glial cell links up neurons and blood vessels and maintains chemistry around neurons?",["Astrocyte","Ependymal cell","Microglia","Satellite cell"],"Astrocytes link neurons with blood vessels and form a support network.");
+M(11,11,"Which glial cells are phagocytic and handle CNS 'sanitation'?",["Microglia","Astrocytes","Oligodendrocytes","Ependymal cells"],"Microglia: phagocytic, immune-like, increase in damaged tissue.");
+M(11,12,"Which glial cells line the ventricles and are ciliated to help move cerebrospinal fluid (CSF)?",["Ependymal cells","Microglia","Astrocytes","Schwann cells"],"Ependymal cells line CNS cavities and help CSF flow.");
+M(11,13,"Which glial cell produces myelin sheaths in the CNS?",["Oligodendrocyte","Schwann cell","Astrocyte","Satellite cell"],"Oligodendrocytes have multiple processes that wrap neurons to form CNS myelin.");
+M(11,14,"Which glial cell produces myelin sheaths in the PNS?",["Schwann cell","Oligodendrocyte","Microglia","Ependymal cell"],"Schwann cells wrap neurons in the PNS.");
+T(11,14,"A single PNS neuron will have multiple Schwann cells along it.",true,"A single neuron will have multiple Schwann cells.");
+M(11,14,"Satellite cells in the PNS function similarly to which CNS cells?",["Astrocytes","Microglia","Oligodendrocytes","Ependymal cells"],"Satellite cells function similarly to astrocytes.");
+M(11,15,"Which is NOT a feature of neurons?",["Short lifespan","Exceptionally long lifespan","Very elongated (axons may exceed 1 m)","Exceptionally high metabolic rate"],"Neurons have exceptionally LONG lifespans.");
+M(11,15,"Which part of the neuron is the signal RECEIVING region?",["Dendrites","Axon","Axon terminals","Myelin sheath"],"Dendrites receive, axon conducts, axon terminals send (secretory region).");
+M(11,15,"Which part of the neuron is the signal SENDING (secretory) region?",["Axon terminals","Dendrites","Cell body","Node of Ranvier"],"Axon terminals = signal sending, secretory region.");
+M(11,15,"The axon is the neuron's:",["Signal conducting region","Signal receiving region","Nucleus","Glial support"],"Axon = signal conducting region.");
+M(11,16,"Neuron type (structural) is determined by:",["The number of processes","The length of the axon","The neurotransmitter it uses","Its location"],"Neuron type is determined by the number of processes.");
+M(11,16,"The MOST common neuron type, with multiple dendrites and one axon, is:",["Multipolar","Bipolar","Unipolar","Interneuron"],"Multipolar = many dendrites, one axon, most common.");
+M(11,16,"A neuron with ONE dendrite and ONE axon is:",["Bipolar","Multipolar","Unipolar","Motor"],"Bipolar = one dendrite, one axon.");
+M(11,16,"A neuron with a single process that acts as both dendrite and axon is:",["Unipolar","Bipolar","Multipolar","Interneuron"],"Unipolar = single process.");
+M(11,17,"Which neurons form the networks where integration occurs in the CNS?",["Interneurons","Sensory neurons","Motor neurons","Schwann cells"],"Interneurons do integration; sensory carry info in (afferent); motor carry out (efferent).");
+M(11,17,"Motor neurons carry impulses:",["Along efferent pathways to effector organs (muscles, glands)","Along afferent pathways to the CNS","Only within the brain","To sensory receptors"],"Motor neurons send impulses to effectors via efferent pathways.");
+M(11,19,"Membrane potential is:",["Potential energy from a concentration gradient across a membrane","The speed of an action potential","The number of channels in a membrane","The thickness of the myelin"],"Membrane potential = potential energy from a concentration gradient across a membrane.");
+M(11,19,"Because the gradient across an axon membrane is made of ions (charged), it is called an:",["Electrochemical gradient","Osmotic gradient","Pressure gradient","Thermal gradient"],"Concentration + electrical gradient = electrochemical gradient.");
+M(11,20,"The electrochemical gradient is built primarily by moving which ions?",["Na+ and K+","Ca2+ and Cl-","H+ and OH-","Mg2+ and Na+"],"Mainly Na+ and K+, by ATP powered Na+/K+ pumps.");
+M(11,23,"Each cycle of the Na+/K+ pump moves:",["3 Na+ out and 2 K+ in","2 Na+ out and 3 K+ in","3 K+ out and 2 Na+ in","1 Na+ out and 1 K+ in"],"3 Na+ out, 2 K+ in. This leaves net positive outside, negative inside.");
+T(11,20,"Na+/K+ pumps require ATP.",true,"They are ATP powered pumps.");
+M(11,22,"Which channels are simple, always OPEN channels?",["Leakage channels","Voltage gated channels","Ligand gated channels","Calcium channels only"],"Leakage channels are simply open.");
+M(11,22,"Voltage gated channels:",["Are normally closed and open when a certain voltage is reached","Are always open","Open when a neurotransmitter binds","Only move water"],"Voltage gated = closed until a certain voltage is reached.");
+M(11,22,"Ligand gated (chemically gated) channels open when:",["A specific chemical, like a neurotransmitter, attaches","A certain voltage is reached","The membrane is stretched","They never open"],"Ligand gated = open with attachment of a specific chemical (e.g., neurotransmitter).");
+M(11,23,"The average resting membrane potential in humans is about:",["-70 mV","-50 mV","+30 mV","0 mV"],"Resting potential averages about -70 mV.");
+M(11,23,"At rest, which leakage channels are far more abundant?",["K+ leakage channels","Na+ leakage channels","Ca2+ leakage channels","They are equal"],"K+ leakage channels are far more abundant, adding to the + outside / - inside.");
+M(11,23,"At rest, the charge is:",["Net positive outside the cell, negative inside","Net negative outside, positive inside","Neutral on both sides","Positive on both sides"],"Positive outside, negative inside.");
+M(11,25,"Increasing Na+ permeability causes the membrane to:",["Depolarize (become less negative)","Hyperpolarize (become more negative)","Stay at -70 mV","Reach -90 mV"],"Na+ in = depolarization.");
+M(11,25,"Increasing K+ permeability causes:",["Hyperpolarization (more negative)","Depolarization (less negative)","An action potential","Neurotransmitter release"],"K+ out = hyperpolarization.");
+M(11,26,"Graded potentials are:",["Localized and short lived, and stronger stimuli make stronger ones","All-or-nothing and identical in size","Able to travel the whole axon without fading","Only caused by K+"],"Graded potentials are local, short lived, and vary with stimulus strength.");
+M(11,28,"As a graded potential spreads away from the channels:",["It decays (gets weaker) with distance","It gets stronger","It stays exactly the same size","It turns into hyperpolarization"],"Depolarization decays with distance.");
+M(11,27,"Which receptors are stimulated by pressure (e.g., Pacinian and Meissner's corpuscles)?",["Mechanoreceptors","Chemoreceptors","Photoreceptors","Thermoreceptors"],"Mechanoreceptors = pressure.");
+M(11,27,"Which receptors detect motion, position, and stretch?",["Proprioceptors","Nociceptors","Photoreceptors","Chemoreceptors"],"Proprioceptors = motion, position, stretch.");
+M(11,27,"Which receptors are involved in smell and taste?",["Chemoreceptors","Mechanoreceptors","Thermoreceptors","Proprioceptors"],"Chemoreceptors detect chemicals (smell, taste, body chemistry).");
+M(11,27,"Which receptors detect trauma or tissue damage?",["Nociceptors","Photoreceptors","Proprioceptors","Thermoreceptors"],"Nociceptors detect trauma and damage.");
+M(11,29,"A neuron stimulated by MORE THAN ONE input at the same time shows:",["Spatial summation","Temporal summation","Absolute refractory period","Saltatory conduction"],"Spatial = multiple inputs (different places). Temporal = multiple successive stimuli (over time).");
+M(11,29,"Multiple successive stimuli from the same input adding up is:",["Temporal summation","Spatial summation","Hyperpolarization","Continuous conduction"],"Temporal = time; successive stimuli.");
+M(11,30,"An action potential is initiated when a graded potential:",["Reaches threshold","Decays","Hyperpolarizes the membrane","Reaches -90 mV"],"If the graded potential is strong enough to reach threshold, an AP is initiated.");
+M(11,30,"Why is an action potential called 'all or nothing'?",["Once threshold is reached it fires fully and travels the entire axon; otherwise it does not fire","It can be any size","It only happens in glia","It only happens half the time"],"An AP is an all or nothing impulse that travels the entire length of the axon.");
+M(11,31,"Voltage gated Na+ channels open at a threshold of about:",["-50 mV","-70 mV","+30 mV","-90 mV"],"Threshold = -50 mV.");
+M(11,32,"During the rapid DEPOLARIZATION phase of an AP:",["Voltage gated Na+ channels open and Na+ rushes in","Voltage gated K+ channels open and K+ rushes out","Na+/K+ pumps restore resting potential","Ca2+ enters the axon terminal"],"Step 2: threshold reached, Na+ channels open, rapid depolarization.");
+M(11,32,"During REPOLARIZATION:",["Na+ channels deactivate and voltage gated K+ channels open, K+ flows out","Na+ channels open","Ca2+ channels open","Ligand gated channels open"],"Step 3: Na+ channels deactivate, K+ channels open, rapid repolarization.");
+M(11,32,"Why does hyperpolarization happen at the end of an AP?",["K+ channels remain open","Na+ channels stay open","The pump stops","Ca2+ leaks in"],"Step 4: hyperpolarization as K+ channels remain open.");
+M(11,32,"What finally restores the resting potential after an AP?",["Na+/K+ pumps","Voltage gated Na+ channels","Neurotransmitters","Myelin"],"Step 5: Na+/K+ pumps restore resting potential.");
+T(11,33,"Once an action potential is initiated, it cannot be stopped and moves to the axon terminal.",true,"Once initiated, the AP cannot be stopped.");
+M(11,35,"How does the nervous system tell the difference between a whisper and a shout?",["More frequent APs for the stronger stimulus","Bigger APs for the stronger stimulus","Longer APs for the stronger stimulus","Different ions for each sound"],"All APs are identical in size and duration. Differences come from more frequent APs.");
+T(11,35,"A stronger stimulus produces a bigger action potential.",false,"All APs are identical in magnitude. Stronger = MORE FREQUENT APs.");
+M(11,36,"The total duration of an action potential is about:",["3 to 4 ms","1 second","30 ms","0.01 ms"],"AP duration is about 3-4 ms; depolarization/repolarization about 1.5 ms.");
+M(11,36,"What does the ABSOLUTE refractory period do?",["Prevents the AP from moving backward; no new AP is possible","Allows a new AP with a stronger stimulus","Releases neurotransmitter","Restores resting potential"],"Absolute RP is during initial depolarization/repolarization and prevents backward movement.");
+M(11,36,"During the RELATIVE refractory period:",["A new AP is possible but requires a greater stimulus","No AP is possible at all","Na+ channels are opening","The neuron is at resting potential"],"Relative RP: from hyperpolarization to the end; AP possible with greater stimulus.");
+M(11,37,"Which axon would conduct an AP fastest?",["A large diameter, myelinated axon","A small diameter, unmyelinated axon","A large diameter, unmyelinated axon","A small diameter axon with no Na+ channels"],"Larger diameter and myelin both increase velocity.");
+M(11,37,"Unmyelinated axons conduct by:",["Continuous conduction (slower)","Saltatory conduction (faster)","Electrical synapses","Temporal summation"],"Unmyelinated = continuous conduction; myelinated = saltatory.");
+M(11,38,"In saltatory conduction, the AP 'jumps' from:",["Node of Ranvier to node of Ranvier","Dendrite to dendrite","Synapse to synapse","Schwann cell nucleus to nucleus"],"Saltatory conduction jumps node to node, like skipping a stone.");
+M(11,38,"Saltatory conduction can reach velocities of up to about:",["150 m/s","10 m/s","1 m/s","1,000 m/s"],"Continuous: 0.5 to 10 m/s. Saltatory: up to 150 m/s (about 335 mph).");
+M(11,38,"Continuous conduction is compared on the slides to:",["Sliding a stone across the surface of water","Skipping a stone","Throwing a ball","Climbing a ladder"],"Continuous = sliding a stone; saltatory = skipping a stone.");
+M(11,41,"The gap between the presynaptic and postsynaptic cells is the:",["Synaptic cleft","Node of Ranvier","Axon hillock","Myelin sheath"],"The synaptic cleft leaves a gap between the two cells.");
+M(11,42,"Which type of synapse is RARE?",["Axoaxonal (axon to axon)","Axodendritic","Axosomatic","All are equally common"],"Axon terminals synapse with dendrites or cell bodies; rarely with other axons.");
+M(11,42,"Most synaptic transmission is:",["Chemical (via neurotransmitter)","Electrical","Mechanical","Thermal"],"Chemical is the norm; electrical is rare.");
+M(11,43,"When an AP reaches the axon terminal, which channels open first?",["Voltage gated Ca2+ channels","Ligand gated Na+ channels","K+ leakage channels","Cl- channels"],"Voltage gated Ca2+ channels open, admitting Ca2+.");
+M(11,43,"What role does Ca2+ play at the axon terminal?",["It acts as a second messenger, causing neurotransmitter vesicles to fuse and release their contents","It binds to postsynaptic receptors","It breaks down neurotransmitter","It forms myelin"],"Ca2+ is a secondary messenger triggering vesicle fusion and NT release.");
+M(11,43,"Neurotransmitter binds to which channels on the postsynaptic cell?",["Ligand gated (chemically gated) channels","Voltage gated channels","Leakage channels","Ca2+ channels"],"NT binds receptors on ligand gated channels, causing a graded potential.");
+M(11,43,"How is neurotransmitter removed so the postsynaptic cell can reset?",["It is degraded or resorbed","It stays bound forever","It turns into Ca2+","It travels back down the axon"],"NTs are degraded or resorbed.");
+M(11,44,"An EPSP (excitatory postsynaptic potential) opens which channels?",["Na+ channels (depolarization, toward threshold)","K+ channels (hyperpolarization)","Ca2+ channels","No channels"],"EPSP opens Na+ channels; it says 'Fire!'");
+M(11,44,"An IPSP (inhibitory postsynaptic potential):",["Opens K+ channels and hyperpolarizes, moving the neuron away from threshold","Opens Na+ channels and depolarizes","Always causes an AP","Releases Ca2+"],"IPSP opens K+ channels; it says 'Don't fire!'");
+M(11,47,"When a neuron receives many EPSPs and IPSPs at once:",["They are summed; contradictory PSPs cancel and the most common type prevails","Only the first one counts","IPSPs are ignored","Every PSP produces its own AP"],"Summation: contradictory PSPs cancel out, the most common type prevails.");
+
+/* ---------- topics (for the summary) ---------- */
+const TOPICS={9:[[29,29,"Types of contraction"],[30,30,"Muscle twitch phases"],[31,31,"Tension, AP frequency, tetanus"],[32,33,"Motor unit recruitment, Henneman"],[34,34,"Muscle tone"],[35,37,"Exercise factors and ATP"],[38,38,"How ATP is produced"],[39,39,"Fiber types"],[40,40,"Aerobic training effects"],[41,41,"Resistance training effects"]],
+10:[[4,5,"Prime movers, antagonists, synergists"],[6,6,"Origin and insertion"],[7,10,"Fascicle arrangements"],[11,12,"Levers, power vs speed"],[13,13,"Muscle action"],[14,16,"Body movements"],[17,17,"Naming muscles"]],
+11:[[3,5,"Functions of the nervous system"],[6,7,"CNS, PNS and divisions"],[8,14,"Neuroglia"],[15,17,"Neuron structure and types"],[19,23,"Membrane and resting potential"],[25,29,"Graded potentials and receptors"],[30,36,"Action potentials"],[37,38,"Conduction speed, myelin"],[41,47,"Synapses, EPSPs and IPSPs"]]};
+const topicOf=q=>{for(const[a,b,t]of TOPICS[q.c])if(q.s>=a&&q.s<=b)return t;return "Other"};
+Q.forEach((q,k)=>q.k=k);
+const lectureSort=(a,b)=>a.c-b.c||a.s-b.s||a.k-b.k;
+const byId=Object.fromEntries(Q.map(q=>[q.id,q]));
+
+/* ---------- saved state ---------- */
+const KEY="aandp-exam3-v2";
+let P={s:{},order:"lecture",run:null};
+try{const raw=localStorage.getItem(KEY);if(raw)P=Object.assign(P,JSON.parse(raw));else{const old=JSON.parse(localStorage.getItem("aandp-exam3-v1")||"null");if(old)P.s=old}}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(P))}catch(e){}};
+const st=q=>P.s[q.id]||"n";
+const $=id=>document.getElementById(id);
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const show=v=>{for(const s of["home","quiz","done","list","summary"])$(s).hidden=s!==v;window.scrollTo&&window.scrollTo(0,0)};
+const tally=qs=>{const t={g:0,y:0,r:0,n:0};qs.forEach(q=>t[st(q)]++);return t};
+const barHTML=(t,tot)=>["g","y","r"].map(k=>`<i style="width:${t[k]/tot*100}%;background:var(--${k})"></i>`).join("");
+const ML={all:"",r:" · red only",ry:" · red + yellow",n:" · unseen",retry:" · redo red + yellow"};
+
+function home(){
+  const groups=[9,10,11].map(c=>({c,qs:Q.filter(q=>q.c===c)}));
+  $("cards").innerHTML=[...groups,{c:0,qs:Q}].map(({c,qs})=>{
+    const t=tally(qs),miss=t.r+t.y;
+    return `<article class="card"><div><h2>${c?CH[c]:"Full exam practice"}</h2><div class="sub">${c?CHSUB[c]:"All three chapters, 9 then 10 then 11, the way the exam runs"}</div></div>
+    <div class="bar" aria-hidden="true">${barHTML(t,qs.length)}</div>
+    <div class="counts"><span><b>${qs.length}</b> questions</span><span><b>${t.g}</b> green</span><span><b>${t.y}</b> yellow</span><span><b>${t.r}</b> red</span><span><b>${t.n}</b> not seen</span></div>
+    ${c?`<div class="bubbles" aria-hidden="true">${qs.slice().sort(lectureSort).map(q=>`<i class="dot d${st(q)}"></i>`).join("")}</div>`:""}
+    <div class="btns"><button class="btn pri" data-go="${c}" data-m="all">Start all ${qs.length}</button>
+    <button class="btn" data-go="${c}" data-m="r" ${t.r?"":"disabled"}>Red only (${t.r})</button>
+    <button class="btn" data-go="${c}" data-m="ry" ${miss?"":"disabled"}>Red + yellow (${miss})</button>
+    <button class="btn" data-go="${c}" data-m="n" ${t.n&&t.n<qs.length?"":"hidden"}>Unseen (${t.n})</button></div></article>`}).join("");
+  const r=P.run;
+  $("resume").innerHTML=r&&r.i<r.ids.length?`<div class="resume"><div><b>Pick up where you left off</b><div class="sub" style="color:var(--mute)">${esc(r.title)}: question ${r.i+1} of ${r.ids.length}</div></div><div class="btns"><button class="btn pri" id="rGo">Resume</button><button class="btn" id="rDrop">Discard</button></div></div>`:"";
+  if($("rGo")){$("rGo").onclick=()=>{ask();show("quiz")};$("rDrop").onclick=()=>{P.run=null;save();home()}}
+  [...$("order").children].forEach(b=>b.setAttribute("aria-pressed",b.dataset.o===P.order));
+  show("home");
+}
+
+function start(c,m,list){
+  c=+c;let qs=list||(c?Q.filter(q=>q.c===c):Q);
+  if(m==="r")qs=qs.filter(q=>st(q)==="r");
+  if(m==="ry")qs=qs.filter(q=>"ry".includes(st(q)));
+  if(m==="n")qs=qs.filter(q=>st(q)==="n");
+  if(!qs.length)return home();
+  qs=P.order==="shuffle"?shuf(qs):qs.slice().sort(lectureSort);
+  P.run={c,m,ids:qs.map(q=>q.id),i:0,res:{},cur:null,title:(c?CH[c]:"Full exam practice")+ML[m]+(P.order==="shuffle"?" · shuffled":"")};
+  save();ask();show("quiz");
+}
+
+let cur=null;
+function ask(){
+  const r=P.run,q=byId[r.ids[r.i]];
+  let order,wrong=[];
+  if(r.cur&&r.cur.id===q.id){order=r.cur.order;wrong=r.cur.wrong}
+  else{order=q.tf?["True","False"]:shuf(q.o);r.cur={id:q.id,order,wrong:[]};save()}
+  const opts=order.map(t=>({t,ok:t===q.o[0]}));
+  cur={q,opts,miss:wrong.length,max:q.tf?1:3,done:false};
+  $("qTitle").textContent=r.title;
+  $("qCount").textContent=`${r.i+1} of ${r.ids.length}`;
+  $("qProg").style.width=`${r.i/r.ids.length*100}%`;
+  $("qTag").textContent=`${CH[q.c].split(":")[0]}, slide ${q.s} · ${topicOf(q)}${q.tf?" · True or False (1 try)":""}`;
+  $("qText").textContent=q.q;
+  $("opts").innerHTML=opts.map((o,i)=>`<button class="opt${wrong.includes(o.t)?" wrong":""}" data-i="${i}" ${wrong.includes(o.t)?"disabled":""}><span class="let">${"ABCD"[i]}</span><span>${esc(o.t)}</span></button>`).join("");
+  $("msg").className="msg";$("msg").innerHTML="";$("next").hidden=true;
+  if(wrong.length){const left=cur.max-cur.miss;$("msg").className="msg show m-t";$("msg").innerHTML=`<b>Welcome back. ${left} ${left===1?"try":"tries"} left on this one.</b>`}
+  drawTries();
+}
+function drawTries(){
+  $("tries").innerHTML=cur.max===1?"1 try":`Tries: `+[0,1,2].map(i=>`<i class="dot ${i<cur.miss?"dr":"dn"}"></i>`).join("");
+}
+function pick(i){
+  if(!cur||cur.done)return;
+  const b=$("opts").children[i];if(!b||b.disabled)return;
+  const o=cur.opts[i];
+  if(o.ok){b.classList.add("right");finish(cur.miss===0?"g":"y")}
+  else{
+    cur.miss++;b.classList.add("wrong");b.disabled=true;drawTries();
+    P.run.cur.wrong.push(o.t);save();
+    if(cur.miss>=cur.max){[...$("opts").children].forEach((x,k)=>{if(cur.opts[k].ok)x.classList.add("reveal")});finish("r")}
+    else{const left=cur.max-cur.miss;$("msg").className="msg show m-t";$("msg").innerHTML=`<b>Not quite. ${left} ${left===1?"try":"tries"} left.</b>Think back to the slide and pick another answer.`}
+  }
+}
+function finish(r){
+  cur.done=true;P.s[cur.q.id]=r;P.run.res[cur.q.id]=r;P.run.cur=null;save();
+  [...$("opts").children].forEach(x=>x.disabled=true);
+  const head={g:"Correct on the first try!",y:`Correct on try ${cur.miss+1}. Marked yellow: should come back to.`,r:"Marked red: need to really study."}[r];
+  const ans=r==="r"?`<br>Correct answer: <b style="display:inline">${esc(cur.q.o[0])}</b>`:"";
+  $("msg").className="msg show m-"+r;$("msg").innerHTML=`<b>${head}</b>${esc(cur.q.e)}${ans}`;
+  $("next").hidden=false;$("next").textContent=P.run.i+1<P.run.ids.length?"Next question":"See results";$("next").focus();
+}
+function next(){P.run.i++;save();if(P.run.i<P.run.ids.length)ask();else end()}
+function quit(){if(cur&&cur.done){P.run.i++;}if(P.run&&P.run.i>=P.run.ids.length)P.run=null;save();cur=null;home()}
+
+function rowHTML(q,s,open){
+  return `<details class="li s-${s}"${open?" open":""}><summary><i class="dot d${s}" style="margin-top:5px"></i><div><p>${esc(q.q)}</p><p class="a">${CH[q.c].split(":")[0]}, slide ${q.s} · ${topicOf(q)}</p></div></summary><div class="ex"><b>Answer:</b> ${esc(q.o[0])}<br>${esc(q.e)}</div></details>`;
+}
+function end(){
+  const r=P.run,qs=r.ids.map(id=>byId[id]),t={g:0,y:0,r:0};qs.forEach(q=>{const v=r.res[q.id];if(v)t[v]++});
+  const total=t.g+t.y+t.r;
+  $("dTitle").textContent=`Round complete: ${t.g} of ${total} right on the first try`;
+  $("dSum").innerHTML=`<div style="background:var(--gs)"><b>${t.g}</b>Got it</div><div style="background:var(--ys)"><b>${t.y}</b>Should come back to</div><div style="background:var(--rs)"><b>${t.r}</b>Need to really study</div>`;
+  const ord={r:0,y:1,g:2},missed=qs.filter(q=>"ry".includes(r.res[q.id]));
+  $("dList").innerHTML=qs.filter(q=>r.res[q.id]).sort((a,b)=>ord[r.res[a.id]]-ord[r.res[b.id]]||lectureSort(a,b)).map(q=>rowHTML(q,r.res[q.id])).join("");
+  $("dRetry").disabled=!missed.length;
+  $("dRetry").onclick=()=>start(0,"retry",missed);
+  P.run=null;save();show("done");
+}
+
+function summary(){
+  const t=tally(Q),seen=Q.length-t.n;
+  let html=`<div class="sum"><div style="background:var(--soft)"><b>${seen}/${Q.length}</b>questions tried</div><div style="background:var(--gs)"><b>${t.g}</b>got it</div><div style="background:var(--ys)"><b>${t.y}</b>should come back to</div><div style="background:var(--rs)"><b>${t.r}</b>need to really study</div></div>`;
+  for(const c of[9,10,11]){
+    const qs=Q.filter(q=>q.c===c).sort(lectureSort),ct=tally(qs),cs=qs.length-ct.n;
+    const pct=cs?Math.round(ct.g/cs*100):0;
+    const tops=TOPICS[c].map(([a,b,name])=>{const tq=qs.filter(q=>topicOf(q)===name),tt=tally(tq);return{name,tt,score:tt.r*2+tt.y,tq}});
+    const weak=tops.filter(x=>x.score).sort((a,b)=>b.score-a.score);
+    const reds=qs.filter(q=>st(q)==="r"),yels=qs.filter(q=>st(q)==="y");
+    html+=`<section class="sumch"><div class="row" style="margin-bottom:6px"><h3>${CH[c]}</h3><span class="pct">${cs?pct+"%":"Not started"}</span></div>
+    <div class="note" style="margin:0 0 8px">${cs?`${ct.g} of ${cs} tried questions right on the first try. ${ct.n} not tried yet.`:`${qs.length} questions waiting for you.`}</div>
+    <div class="bar">${barHTML(ct,qs.length)}</div>
+    ${weak.length?`<p style="margin:12px 0 4px"><b>Topics to focus on (worst first)</b></p><div class="topic">${weak.map(w=>`<span class="${w.tt.r?"r":"y"}">${esc(w.name)}: ${w.tt.r} red, ${w.tt.y} yellow</span>`).join("")}</div>`:cs?`<p class="note">No weak topics so far.</p>`:""}
+    ${reds.length?`<p style="margin:12px 0 6px"><b>Need to really study (${reds.length})</b></p><div class="list">${reds.map(q=>rowHTML(q,"r")).join("")}</div>`:""}
+    ${yels.length?`<p style="margin:12px 0 6px"><b>Should come back to (${yels.length})</b></p><div class="list">${yels.map(q=>rowHTML(q,"y")).join("")}</div>`:""}
+    <div class="btns" style="margin-top:12px">${reds.length+yels.length?`<button class="btn pri" data-go="${c}" data-m="ry">Practice my ${reds.length+yels.length} red + yellow</button>`:""}${ct.n?`<button class="btn" data-go="${c}" data-m="n">Try ${ct.n} unseen</button>`:""}</div></section>`;
+  }
+  $("sBody").innerHTML=html;show("summary");
+}
+
+let filt="r";
+function list(){
+  const t=tally(Q);
+  const F=[["r","Need to really study",t.r],["y","Should come back to",t.y],["g","Got it",t.g],["n","Not seen",t.n]];
+  $("chips").innerHTML=F.map(([k,l,c])=>`<button class="chip" data-f="${k}" aria-pressed="${k===filt}"><i class="dot d${k}"></i>${l} (${c})</button>`).join("");
+  const qs=Q.filter(q=>st(q)===filt).sort(lectureSort);
+  $("lList").innerHTML=qs.length?[9,10,11].map(c=>{const g=qs.filter(q=>q.c===c);return g.length?`<h3 style="font-size:20px;margin:14px 0 4px">${CH[c]}</h3>`+g.map(q=>rowHTML(q,filt)).join(""):""}).join(""):`<div class="empty">Nothing here yet.</div>`;
+  show("list");
+}
+
+/* ---------- move progress between devices ---------- */
+function openMove(){
+  $("mvCode").value="AP3:"+btoa(JSON.stringify(P.s));$("mvNote").textContent="";$("move").classList.add("show");
+}
+$("mvCopy").onclick=async()=>{const v=$("mvCode").value;try{await navigator.clipboard.writeText(v);$("mvNote").textContent="Copied. Paste it on your other device."}catch(e){$("mvCode").select();$("mvNote").textContent="Press Ctrl+C (or long-press and Copy) to copy the selected code."}};
+$("mvLoad").onclick=()=>{
+  const v=$("mvCode").value.trim();
+  try{if(!v.startsWith("AP3:"))throw 0;const s=JSON.parse(atob(v.slice(4)));if(typeof s!=="object")throw 0;
+    const clean={};for(const[k,x]of Object.entries(s))if(byId[k]&&"gyr".includes(x))clean[k]=x;
+    P.s=clean;save();$("mvNote").textContent=`Loaded ${Object.keys(clean).length} answers.`;home();
+  }catch(e){$("mvNote").textContent="That code didn't work. Make sure you pasted the whole thing, starting with AP3:"}
+};
+$("mvClose").onclick=()=>$("move").classList.remove("show");
+
+document.addEventListener("click",e=>{
+  const g=e.target.closest("[data-go]");if(g&&!g.disabled)return start(g.dataset.go,g.dataset.m);
+  const o=e.target.closest(".opt");if(o)return pick(+o.dataset.i);
+  const f=e.target.closest("[data-f]");if(f){filt=f.dataset.f;return list()}
+  const ob=e.target.closest("[data-o]");if(ob){P.order=ob.dataset.o;save();return home()}
+});
+$("next").onclick=next;$("quit").onclick=quit;$("dHome").onclick=home;$("lHome").onclick=home;$("sHome").onclick=home;
+$("goList").onclick=list;$("goSum").onclick=summary;$("goMove").onclick=openMove;
+$("goReset").onclick=()=>$("modal").classList.add("show");
+$("mNo").onclick=()=>$("modal").classList.remove("show");
+$("mYes").onclick=()=>{P.s={};P.run=null;save();$("modal").classList.remove("show");home()};
+document.addEventListener("keydown",e=>{
+  if($("quiz").hidden||!cur)return;
+  const k=e.key.toUpperCase();
+  if(cur.done&&k==="ENTER"){e.preventDefault();return next()}
+  const i="ABCD".indexOf(k)>=0?"ABCD".indexOf(k):"1234".indexOf(k);
+  if(i>=0&&i<cur.opts.length&&!cur.done){e.preventDefault();pick(i)}
+});
+home();
+
+}
+</script>
+</body>
+</html>
