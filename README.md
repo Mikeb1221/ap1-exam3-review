@@ -5,3 +5,5 @@ Practice quiz for BIOL 2201 (Professor Tyler) Exam 3: Chapter 9 slides 28 to 41,
 Open the live site: https://mikeb1221.github.io/ap1-exam3-review/
 
 Progress saves in your own browser. No sign-in needed.
+
+Study guide: https://mikeb1221.github.io/ap1-exam3-review/study-guide.html (PDF download on that page)
